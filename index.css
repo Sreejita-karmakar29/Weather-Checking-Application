@@ -1,3 +1,4 @@
+```css
 * {
     margin: 0;
     padding: 0;
@@ -8,19 +9,17 @@
 body {
     background-color: azure;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 5vh 20px;
+    padding: 20px;
 }
 
 .card {
     background: linear-gradient(135deg, #2eaaaa, #5b548a);
     width: 100%;
-    max-width: 420px;
+    max-width: 400px;
     color: #fff;
+    margin: 80px auto 0;
     border-radius: 20px;
-    padding: clamp(25px, 5vw, 40px);
+    padding: 40px 35px;
     text-align: center;
 }
 
@@ -28,7 +27,7 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .search input {
@@ -36,12 +35,13 @@ body {
     outline: 0;
     background: #ebfffc;
     color: #555;
-    padding: 10px 20px;
+    padding: 0 18px;
     height: 45px;
     border-radius: 30px;
     flex: 1;
+    width: 0;
     min-width: 0;
-    font-size: clamp(13px, 2vw, 15px);
+    font-size: 15px;
 }
 
 .search button {
@@ -52,6 +52,7 @@ body {
     width: 45px;
     height: 45px;
     min-width: 45px;
+    padding: 0;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -59,23 +60,24 @@ body {
 }
 
 .search button img {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
 }
 
 .weather-icon {
-    width: clamp(80px, 20vw, 110px);
+    width: 100px;
+    max-width: 30vw;
     margin-top: 30px;
 }
 
 .weather h1 {
-    font-size: clamp(40px, 10vw, 55px);
+    font-size: clamp(35px, 12vw, 50px);
     font-weight: 400;
     margin-top: 10px;
 }
 
 .weather h2 {
-    font-size: clamp(18px, 4vw, 22px);
+    font-size: clamp(18px, 5vw, 20px);
     font-weight: 200;
     margin-top: 2px;
 }
@@ -84,32 +86,40 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 15px;
+    padding: 0;
     margin-top: 30px;
-    padding: 0 10px;
 }
 
 .col {
     display: flex;
     align-items: center;
     text-align: left;
-    flex: 1;
     min-width: 0;
+    flex: 1;
 }
 
 .col img {
-    width: clamp(30px, 8vw, 40px);
-    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin-right: 8px;
     flex-shrink: 0;
 }
 
 .col .humidity,
 .col .wind {
-    font-size: clamp(15px, 4vw, 20px);
+    font-size: clamp(14px, 4vw, 20px);
+    white-space: nowrap;
 }
 
 .col p:last-child {
-    font-size: clamp(11px, 3vw, 14px);
+    font-size: clamp(10px, 3vw, 14px);
+    white-space: nowrap;
+}
+
+.weather {
+    display: none;
 }
 
 .error {
@@ -120,18 +130,16 @@ body {
     display: none;
 }
 
-.weather {
-    display: none;
-}
-
-@media (max-width: 360px) {
+@media (max-width: 400px) {
     body {
-        padding: 20px 10px;
+        padding: 10px;
     }
 
     .card {
-        padding: 25px 15px;
-        border-radius: 16px;
+        width: 100%;
+        margin-top: 40px;
+        padding: 30px 20px;
+        border-radius: 18px;
     }
 
     .search {
@@ -139,48 +147,82 @@ body {
     }
 
     .search input {
-        padding: 8px 12px;
-        height: 40px;
+        height: 42px;
+        padding: 0 14px;
+        font-size: 13px;
     }
 
     .search button {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+    }
+
+    .weather-icon {
+        width: 85px;
     }
 
     .details {
-        gap: 10px;
-        padding: 0;
+        gap: 8px;
     }
 
     .col img {
+        width: 30px;
+        height: 30px;
         margin-right: 6px;
     }
 }
 
-@media (min-width: 600px) {
+@media (max-width: 320px) {
     body {
-        padding-top: 8vh;
+        padding: 5px;
     }
 
     .card {
-        max-width: 430px;
+        padding: 25px 12px;
+        margin-top: 25px;
+    }
+
+    .search input {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+    .search button {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+    .details {
+        gap: 5px;
+    }
+
+    .col img {
+        width: 26px;
+        height: 26px;
+        margin-right: 4px;
+    }
+
+    .col .humidity,
+    .col .wind {
+        font-size: 13px;
+    }
+
+    .col p:last-child {
+        font-size: 9px;
     }
 }
 
-@media (min-width: 1024px) {
-    body {
-        padding-top: 100px;
-    }
-
+@media (min-width: 768px) {
     .card {
-        max-width: 450px;
+        margin-top: 100px;
     }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1200px) {
     .card {
-        max-width: 480px;
+        max-width: 420px;
     }
 }
+```
